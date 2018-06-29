@@ -105,7 +105,7 @@
   #list .list .item input {
       cursor:default;
       float:left;
-      width: calc(100% - 150px);
+      width: calc(100% - 250px);
       height: 50px;
       padding: 0;
     margin: 0;
@@ -128,6 +128,21 @@
     line-height: 50px;
     text-align: center;
   }
+
+  #list .list .item ol li[class='due-date']{
+    cursor: default;
+    font-size: 10pt;
+    width: 150px;
+    background: none repeat scroll 0 0 black;
+	border: 1px solid #FCB7CE;
+	height:20px;
+	padding: 1px 8px 1px 6px;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  line-height: normal;
+
+  }
     </style>
 
  
@@ -139,14 +154,15 @@
     <div id='list'>
         <form class='new'>
           <button class='fa fa-plus'></button>
-          <input id='new' placeholder='New Item' type='text'>
+          <input id='new' placeholder='New Item' type='text' autocomplete="off">
           <textarea id="todo-description" placeholder="Enter description"></textarea>
-          <input id='datetimepicker' placeholder='Due date'>
+          <input id='datetimepicker' placeholder='Due date' autocomplete="off">
         </form>
         <ul class='list'>
           <li class='item'>
             <input type='text' value='demo1'>
             <ol>
+              <li class='due-date'>2018/06/27 21:00</li>
               <li class='check fa fa-check'></li>
               <li class='delete fa fa-times'></li>
             </ol>
@@ -154,6 +170,8 @@
           <li class='item'>
             <input type='text' value='demo2'>
             <ol>
+              <li class='due-date'>2017/06/27 21:00</li>
+
               <li class='check fa fa-check'></li>
               <li class='delete fa fa-times'></li>
             </ol>

@@ -1,13 +1,17 @@
 /*$(function(){*/
     $('.new').submit(function () {
-        if ($('#new').val() !== '') {
-            var item = $('input').val();
-            var input = '<input type="text" value="' + item + '" />';
-            var edit = '<ol><li class="check fa fa-check"></li><li class="delete fa fa-times"></li></ol>';
+        if (   $('#new').val() !== ''
+            && $('#todo-description').val() !== ''
+            && $('#datetimepicker').val() !== '') {
+            var itemTitle = $('#new').val();
+            var itemDate = $('#datetimepicker').val();
+            var input = '<input type="text" value="' + itemTitle + '" />';
+            var edit = '<ol><li class="due-date">'+itemDate+'</li><li class="check fa fa-check"></li><li class="delete fa fa-times"></li></ol>';
             $('.list').append('<li class="item">' + input + edit + '</li>');
         };
         $('#new').val('');
-        
+        $('#todo-description').val('');
+        $('#datetimepicker').val('');
         /*
         $('#list .list .item').each(function(e){
             var hue = ( e * 3 );
@@ -37,4 +41,9 @@
           $(this).parent('ol').parent('.item').remove();
         }
       });
+
+      $('#datetimepicker').datetimepicker({
+        
+        });
+        
 /*});*/
