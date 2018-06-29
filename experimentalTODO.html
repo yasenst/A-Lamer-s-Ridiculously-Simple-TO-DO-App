@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TODO App</title> 
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <style>
+    * {
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+
+    body {
+    background: #222222;
+    }
+
+    ul, ol { list-style:none}
+
+    body, input {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14pt;
+    color: white;
+    text-align: justify;
+    }
+
+
+    #list {
+    position: relative;
+    }
+
+    #list .new {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        clear:both;
+        height:100px;
+        background: #222222;
+    }
+
+    #list .new #new {
+        float:left;
+        width: calc(100% - 100px);
+        height:100px;
+        padding: 0;
+        margin: 0;
+        outline: 0;
+        border: 0;
+        background: transparent;
+        line-height: 50px;
+        text-indent: 25px;
+    }
+
+    #list .new button {
+    cursor: pointer;
+    float: right;
+    width: 100px;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    background: #111111;
+    font-size: 50pt;
+    color: white;
+  }
+
+  #list .list {
+    position: relative;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  }
+
+  #list .list .item {
+    clear: both;
+    height: 50px;
+    background: crimson;
+  }
+
+  #list .list .item input {
+      cursor:default;
+      float:left;
+      width: calc(100% - 150px);
+      height: 50px;
+      padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    text-indent: 25px;
+  }
+
+  #list .list .item ol {
+    float: right;
+  }
+
+  #list .list .item ol li {
+    cursor: pointer;
+    float:left;
+    width: 50px;
+    height: 50px;
+    font-size: 20pt;
+    line-height: 50px;
+    text-align: center;
+  }
+    </style>
+</head>
+<body>
+    <h1>A Lamer's Ridiculously Simple TO-DO App</h1>
+
+    <div id='list'>
+        <form class='new'>
+          <input id='new' placeholder='New Item' type='text'>
+          <button class='fa fa-plus'></button>
+        </form>
+        <ul class='list'>
+          <li class='item'>
+            <input type='text' value='demo1'>
+            <ol>
+              <li class='check fa fa-check'></li>
+              <li class='delete fa fa-times'></li>
+            </ol>
+          </li>
+          <li class='item'>
+            <input type='text' value='demo2'>
+            <ol>
+              <li class='check fa fa-check'></li>
+              <li class='delete fa fa-times'></li>
+            </ol>
+          </li>
+        
+        </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="experimentalscript.js"></script>
+</body>
+</html>
