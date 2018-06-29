@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TODO App</title> 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.min.css"/>
+    
     <style>
     * {
         margin:0;
@@ -19,13 +21,18 @@
 
     ul, ol { list-style:none}
 
-    body, input {
+    body, input, textarea {
     font-family: 'Open Sans', sans-serif;
     font-size: 14pt;
     color: white;
     text-align: justify;
+    
     }
 
+    textarea{
+      overflow-y: scroll;
+      resize:none;
+    }
 
     #list {
     position: relative;
@@ -38,23 +45,37 @@
         right: 0;
         clear:both;
         height:200px;
-        background:yellow;
+        /*border:1px solid yellow;*/
+        background:transparent;
     }
 
-    #list .new input {
+    #list .new #new, #list .new #datetimepicker {
         float:left;
         width: calc(100% - 100px);
-        height:100px;
+        height:50px;
         padding: 0;
         margin: 0;
         outline: 0;
         border: 0;
-        background: blue;
-        line-height: 50px;
+        background: transparent;
         text-indent: 25px;
     }
 
-
+    #list .new #todo-description {
+        float:left;
+        width: calc(100% - 100px);
+        height:100px;
+        padding: 25px;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 0;
+        outline: 0;
+        border: 0;
+        background: transparent;
+        box-sizing: border-box;
+        line-height: 30px;
+        
+    }
 
     #list .new button {
     cursor: pointer;
@@ -108,16 +129,19 @@
     text-align: center;
   }
     </style>
+
+ 
 </head>
 <body>
+    
     <h1>A Lamer's Ridiculously Simple TO-DO App</h1>
 
     <div id='list'>
         <form class='new'>
-                <button class='fa fa-plus'></button>
+          <button class='fa fa-plus'></button>
           <input id='new' placeholder='New Item' type='text'>
-         <input id='todo-description' placeholder='write description' type='text'> 
-         
+          <textarea id="todo-description" placeholder="Enter description"></textarea>
+          <input id='datetimepicker' placeholder='Due date'>
         </form>
         <ul class='list'>
           <li class='item'>
@@ -137,7 +161,15 @@
         
         </ul>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--<script src="experimentalscript.js"></script>-->
+  
+
+  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <!--<script src="jquery.js"></script>-->
+    <script src="jquery.datetimepicker.full.js"></script>
+    <script src="experimentalscript.js"></script>
+    
+
+
 </body>
 </html>
