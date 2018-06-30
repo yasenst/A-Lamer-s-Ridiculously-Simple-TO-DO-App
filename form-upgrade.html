@@ -7,7 +7,7 @@
     <title>TODO App</title> 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="jquery.datetimepicker.min.css"/>
-    
+    <link href="alert.css" rel="stylesheet" type="text/css" />
     <style>
     * {
         margin:0;
@@ -33,7 +33,11 @@
       overflow-y: scroll;
       resize:none;
     }
-
+    
+    .description {
+      display:none;
+    }
+    
     #list {
     position: relative;
     }
@@ -113,6 +117,7 @@
     border: 0;
     background: transparent;
     text-indent: 25px;
+    
   }
 
   #list .list .item ol {
@@ -162,16 +167,17 @@
           <li class='item'>
             <input type='text' value='demo1'>
             <ol>
+              <li class="description">This is a description</li>
               <li class='due-date'>2018/06/27 21:00</li>
               <li class='check fa fa-check'></li>
               <li class='delete fa fa-times'></li>
             </ol>
-          </li>
+          </li> 
           <li class='item'>
             <input type='text' value='demo2'>
             <ol>
-              <li class='due-date'>2017/06/27 21:00</li>
-
+              <li class="description" >This is another description</li>
+              <li class='due-date' value='kur'>2017/06/27 21:00</li>
               <li class='check fa fa-check'></li>
               <li class='delete fa fa-times'></li>
             </ol>
@@ -180,13 +186,13 @@
         </ul>
     </div>
   
-
+    
   
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <!--<script src="jquery.js"></script>-->
     <script src="jquery.datetimepicker.full.js"></script>
     <script src="experimentalscript.js"></script>
-    
+    <script type="text/javascript" src="alert.jquery.js"></script>
 
 
 </body>

@@ -1,12 +1,15 @@
 /*$(function(){*/
+    /*$('.description').hide();*/
+
     $('.new').submit(function () {
         if (   $('#new').val() !== ''
             && $('#todo-description').val() !== ''
             && $('#datetimepicker').val() !== '') {
             var itemTitle = $('#new').val();
             var itemDate = $('#datetimepicker').val();
+            var itemDescription = $('#todo-description').val();
             var input = '<input type="text" value="' + itemTitle + '" />';
-            var edit = '<ol><li class="due-date">'+itemDate+'</li><li class="check fa fa-check"></li><li class="delete fa fa-times"></li></ol>';
+            var edit = '<ol><li class="description">'+itemDescription+'</li><li class="due-date">'+itemDate+'</li><li class="check fa fa-check"></li><li class="delete fa fa-times"></li></ol>';
             $('.list').append('<li class="item">' + input + edit + '</li>');
         };
         $('#new').val('');
@@ -30,6 +33,27 @@
               $(this).parent('ol').parent('.item').remove();
             }
           });
+
+
+          $('#list .list .item input').click(function(){
+            var todoTitle = $(this).val();
+            var todoDesc = $(this).parent().children('ol').children('li .description').text();
+            var todoDate = $(this).parent().children('ol').children('li .due-date').text();
+            $.createAlert({
+              attachAfter: '#list .list .item input',
+              title: 'Title: '+todoTitle + '</br>' +
+                     ' Description: ' + todoDesc + '</br>' +
+                     ' Due date: ' + todoDate,
+                      
+              template: `
+              <p> This a template to provide some info to the customer <p>
+              <p> <strong> Alert: </strong> Read it carefully </p>`,
+              confirmText: 'Accept',
+              confirmStyle: 'blue',
+              callback: null
+            });
+            $.showAlert();
+            });
           
           return false;
     });
@@ -45,5 +69,25 @@
       $('#datetimepicker').datetimepicker({
         
         });
+        
+        $('#list .list .item input').click(function(){
+          var todoTitle = $(this).val();
+          var todoDesc = $(this).parent().children('ol').children('li .description').text();
+          var todoDate = $(this).parent().children('ol').children('li .due-date').text();
+          $.createAlert({
+            attachAfter: '#list .list .item input',
+            title: 'Title: '+todoTitle + '</br>' +
+                   ' Description: ' + todoDesc + '</br>' +
+                   ' Due date: ' + todoDate,
+                    
+            template: `
+            <p> This a template to provide some info to the customer <p>
+            <p> <strong> Alert: </strong> Read it carefully </p>`,
+            confirmText: 'Accept',
+            confirmStyle: 'blue',
+            callback: null
+          });
+          $.showAlert();
+          });
         
 /*});*/
