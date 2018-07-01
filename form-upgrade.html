@@ -29,6 +29,26 @@
     
     }
 
+    header {
+      width: 100%;
+      padding: 60px 0;
+      background: #16A085;
+      background: linear-gradient(to top right, #060628, #1F245A, #682359);
+      border-bottom: 3px solid #e1e1e1;
+      /* animation magic */
+      transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      z-index: 9999;
+      top: 0;
+      position: fixed;
+      color:#fff;
+    }
+
+.shrink { padding: 20px 0; }
+
+  
+
     textarea{
       overflow-y: scroll;
       resize:none;
@@ -40,6 +60,7 @@
     
     #list {
     position: relative;
+    margin: 160px auto;
     }
 
     #list .new {
@@ -178,25 +199,42 @@
   line-height: normal;
 
   }
-
+/*
   #list .list .item div.task-value .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    width: 220px;
+    height:50px;
     background-color: #555;
     color: #fff;
     text-align: center;
-    border-radius: 6px;
     padding: 5px 0;
-    position: absolute;
+    border-radius: 6px;
+*/
+    /* Position the tooltip text */
+    /*
+    position: fixed;
     z-index: 1;
-    bottom: 125%;
+    bottom: 100%;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -110px;
+*/
+    /* Fade in tooltip */
+    /*
     opacity: 0;
     transition: opacity 0.3s;
+    */
+/*
+    visibility:hidden;
+    position: fixed;
+    padding: .5em 1em;
+    background-color: #555;
+    color: #fff;  
+    border-radius: 6px;
+    
 }
-
-#list .list .item div.task-value .tooltiptext::after {
+*/
+/*
+ div.task-value .tooltiptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -206,22 +244,30 @@
     border-style: solid;
     border-color: #555 transparent transparent transparent;
 }
-
+*/
+/*
 #list .list .item div.task-value:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-    
+    visibility:visible;
+    display:inline-block;
 }
-
+*/
+/*
+#list .list .item div.task-value:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+*/
 </style>
 
- 
+
 </head>
 <body>
+    <header id="page-header">
+        A Lamer's Ridiculously Simple TO-DO App
+    </header>
+    <!--<h1>A Lamer's Ridiculously Simple TO-DO App</h1>-->
     
-    <h1>A Lamer's Ridiculously Simple TO-DO App</h1>
-
-    <div id='list'>
+    <div id="list">
         <form class='new'>
           <button class='fa fa-plus'></button>
           <input id='new' placeholder='New Item' type='text' autocomplete="off">
@@ -232,7 +278,7 @@
           <li class='item'>
             <div class='task-value'>
                 <input type='text' value='demo1' readonly>
-                <span class="tooltiptext">Click to expand!</span>
+                <!--<span class="tooltiptext">Click to expand!</span>-->
             </div>
             <!--<input type='text' value='demo1' readonly>-->
             
@@ -246,7 +292,7 @@
           <li class='item'>
               <div class='task-value'>
                   <input type='text' value='demo2' readonly>
-                  <span class="tooltiptext">Click to expand!</span>
+                 <!-- <span class="tooltiptext">Click to expand!</span>-->
               </div>
             <ol> 
               <li class="description" >This is another description</li>
@@ -266,7 +312,34 @@
     <script src="jquery.datetimepicker.full.js"></script>
     <script src="experimentalscript.js"></script>
     <script type="text/javascript" src="alert.jquery.js"></script>
+  <script>
+    $(document).on("scroll", function(){
 
+        if ($(document).scrollTop() > 100){
 
+          $("header").addClass("shrink");
+
+        } else {
+
+          $("header").removeClass("shrink");
+
+        }
+
+      });
+      
+     
+      </script>
+      
+      <script> 
+        /*
+        $( document ).on( "mousemove", function( event ) {
+          $( "#log" ).text( "pageX: " + event.pageX + ", pageY: " + event.pageY );
+          $( ".tooltiptext" ).css({
+            "left" : event.pageX,
+            "top" : event.pageY
+          });
+        });
+        */
+     </script>
 </body>
 </html>
