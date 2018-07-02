@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TODO App</title> 
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="alert.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
     <style>
     * {
         margin:0;
@@ -19,16 +22,40 @@
 
     ul, ol { list-style:none}
 
-    body, input {
+    body, input, textarea, div.task-value {
     font-family: 'Open Sans', sans-serif;
     font-size: 14pt;
     color: white;
     text-align: justify;
+    
     }
 
+    header {
+      width: 100%;
+      padding: 35px 16px;
+      background: black;
+      color:#fff;
+    }
 
+    .fixed {
+      position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+
+    textarea{
+      overflow-y: scroll;
+      resize:none;
+    }
+    
+    .description {
+      display:none;
+    }
+    
     #list {
     position: relative;
+    /*margin: 160px auto;*/
     }
 
     #list .new {
@@ -37,28 +64,44 @@
         left: 0;
         right: 0;
         clear:both;
-        height:100px;
-        background: #222222;
+        height:200px;
+        /*border:1px solid yellow;*/
+        background:transparent;
     }
 
-    #list .new #new {
+    #list .new #new, #list .new #datetimepicker {
         float:left;
         width: calc(100% - 100px);
-        height:100px;
+        height:50px;
         padding: 0;
         margin: 0;
         outline: 0;
         border: 0;
         background: transparent;
-        line-height: 50px;
         text-indent: 25px;
+    }
+
+    #list .new #todo-description {
+        float:left;
+        width: calc(100% - 100px);
+        height:100px;
+        padding: 25px;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin: 0;
+        outline: 0;
+        border: 0;
+        background: transparent;
+        box-sizing: border-box;
+        line-height: 30px;
+        
     }
 
     #list .new button {
     cursor: pointer;
     float: right;
     width: 100px;
-    height: 100px;
+    height: 200px;
     padding: 0;
     margin: 0;
     outline: 0;
@@ -79,10 +122,26 @@
     background: crimson;
   }
 
+  /*
   #list .list .item input {
       cursor:default;
       float:left;
-      width: calc(100% - 150px);
+      width: calc(100% - 250px);
+      height: 50px;
+      padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 1px solid yellow;
+    background: transparent;
+    text-indent: 25px;
+    
+  }
+  */
+
+  #list .list .item div.task-value {
+      cursor:default;
+      float:left;
+      width: calc(100% - 300px);
       height: 50px;
       padding: 0;
     margin: 0;
@@ -90,13 +149,28 @@
     border: 0;
     background: transparent;
     text-indent: 25px;
+    line-height: 50px;
+  }
+
+  #list .list .item div.task-value input{
+      cursor:default;
+      float:left;
+      width: 100%;
+      height: 50px;
+      padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    text-indent: 25px;
+    line-height: 50px;
   }
 
   #list .list .item ol {
     float: right;
   }
 
-  #list .list .item ol li {
+  #list .list .item ol li{
     cursor: pointer;
     float:left;
     width: 50px;
@@ -105,27 +179,146 @@
     line-height: 50px;
     text-align: center;
   }
-    </style>
+
+  #list .list .item ol li[class='due-date']{
+    cursor: default;
+    font-size: 10pt;
+    width: 150px;
+    background: none repeat scroll 0 0 black;
+	border: 1px solid #FCB7CE;
+	height:20px;
+	padding: 1px 8px 1px 6px;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  line-height: normal;
+
+  }
+/*
+  #list .list .item ol li[class='far fa-edit'] .datetimepicker {
+    z-index: 9999;
+  }
+  */
+/*
+  #list .list .item div.task-value .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    height:50px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+*/
+    /* Position the tooltip text */
+    /*
+    position: fixed;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -110px;
+*/
+    /* Fade in tooltip */
+    /*
+    opacity: 0;
+    transition: opacity 0.3s;
+    */
+/*
+    visibility:hidden;
+    position: fixed;
+    padding: .5em 1em;
+    background-color: #555;
+    color: #fff;  
+    border-radius: 6px;
+    
+}
+*/
+/*
+ div.task-value .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+*/
+/*
+#list .list .item div.task-value:hover .tooltiptext {
+    visibility:visible;
+    display:inline-block;
+}
+*/
+/*
+#list .list .item div.task-value:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+*/
+
+
+  .ui-datepicker-trigger {
+    border: none;
+    background:transparent;
+    color:white;
+    float:left;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    font-size: 20pt;
+    line-height: 50px;
+    text-align: center;
+  }
+
+.hiddenField{
+    display: none;
+}
+
+</style>
+
+
 </head>
 <body>
-    <h1>A Lamer's Ridiculously Simple TO-DO App</h1>
-
-    <div id='list'>
+    <header id="page-header">
+        A Lamer's Ridiculously Simple TO-DO App
+    </header>
+    <!--<h1>A Lamer's Ridiculously Simple TO-DO App</h1>-->
+    
+    <div id="list">
         <form class='new'>
-          <input id='new' placeholder='New Item' type='text'>
           <button class='fa fa-plus'></button>
+          <input id='new' placeholder='New Item' type='text' autocomplete="off">
+          <textarea id="todo-description" placeholder="Enter description"></textarea>
+          <input id='datetimepicker' placeholder='Due date' autocomplete="off">
         </form>
         <ul class='list'>
           <li class='item'>
-            <input type='text' value='demo1'>
+            <div class='task-value'>
+                <input type='text' value='demo1' readonly>
+                <!--<span class="tooltiptext">Click to expand!</span>-->
+            </div>
+            <!--<input type='text' value='demo1' readonly>-->
+            
             <ol>
+              <li class="description">This is a description</li>
+              <li class='due-date'>2018/06/27 21:00</li>
+              <input type="input"  class="hiddenField" />
               <li class='check fa fa-check'></li>
               <li class='delete fa fa-times'></li>
             </ol>
-          </li>
+          </li> 
           <li class='item'>
-            <input type='text' value='demo2'>
-            <ol>
+              <div class='task-value'>
+                  <input type='text' value='demo2' readonly>
+                 <!-- <span class="tooltiptext">Click to expand!</span>-->
+              </div>
+            <ol> 
+              <li class="description" >This is another description</li>
+             
+              <li class='due-date'>2017/06/27 21:00</li>
+              <input type="input"  class="hiddenField" />
               <li class='check fa fa-check'></li>
               <li class='delete fa fa-times'></li>
             </ol>
@@ -133,7 +326,24 @@
         
         </ul>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="experimentalscript.js"></script>
+    
+    
+   
+    
+  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script
+   src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+   integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+   crossorigin="anonymous"></script>
+   <!--<script src="jquery.js"></script>-->
+    
+    <script src="plainExperimentaljs.js"></script>
+    <script type="text/javascript" src="alert.jquery.js"></script>
+  <script>
+   
+      </script>
+      
+    
 </body>
 </html>
