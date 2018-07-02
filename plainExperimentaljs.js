@@ -47,7 +47,16 @@ $(function(){
 
             $( ".hiddenField" ).datepicker({
                 showOn: "button",
-                buttonText: "<i class='far fa-edit'></i>"
+                buttonText: "<i class='far fa-edit'></i>",
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd MM yy',
+                onSelect: function(dateText, inst) {
+                  var date = $(this).val();
+                 
+                  $(this).parent().children('li.due-date').text(date);
+          
+              }
               });
           
           return false;
@@ -98,7 +107,26 @@ $(function(){
         
           $( ".hiddenField" ).datepicker({
               showOn: "button",
-              buttonText: "<i class='far fa-edit'></i>"
+              buttonText: "<i class='far fa-edit'></i>",/*,
+              onSelect: function() {
+                $('body').append('<div>HIIII</div>');
+              }*/
+              changeMonth: true,
+              changeYear: true,
+              dateFormat: 'dd MM yy',
+              onSelect: function(dateText, inst) {
+                var date = $(this).val();
+               
+                $(this).parent().children('li.due-date').text(date);
+        
+            }
             });
-       
+       /*
+        var currentDate =  $('.date-change').datepicker("getDate");
+        if (currentDate !== null) {
+           alert('hi');
+        }
+*/
+
+         
 });
