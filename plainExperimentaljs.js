@@ -15,12 +15,13 @@ $(function(){
         $('#todo-description').val('');
         $('#datetimepicker').val('');
        
-          $('#list .list .item ol li').on('click',function(){
+        $('#list .list .item ol li').on('click',function(){
             if ( $(this).hasClass('check') ) {
-              $(this).parent('ol').parent('.item').css("background", "lime");
+              $(this).parent('ol').parent('.item').children('div').children('input').css("background-color", "green");
             } else if ( $(this).hasClass('delete') ) {
               $(this).parent('ol').parent('.item').remove();
             }
+            
           });
 
 
@@ -59,15 +60,38 @@ $(function(){
               }
               });
           
+              $('#list .list .item ol li[class="check fa fa-check"]').hover(
+                
+                    
+                    function() {
+                        
+                        var dis = $(this);
+                        var inputEntity = dis.parent('ol').parent('.item').children('div.task-value').children('input');
+                        if ( inputEntity.css('background-color') === 'rgb(220, 20, 60)') {
+                            dis.css('color','green');              
+                        }
+                        
+                        
+                    },
+                    function() {
+                        $(this).css('color','white');
+                    }
+    
+                    
+              );
           return false;
     });
 
     $('#list .list .item ol li').on('click',function(){
         if ( $(this).hasClass('check') ) {
-          $(this).parent('ol').parent('.item').css("background", "lime");
+          $(this).parent('ol').parent('.item').children('div').children('input').css("background-color", "green");
+          $(this).parent('ol').children('.hiddenField').datepicker("option", "disabled", true);
+          $(this).parent('ol').children('.ui-datepicker-trigger').css('visibility','hidden');
+          $(this).parent('ol').children('.ui-datepicker-trigger').css('cursor','default');
         } else if ( $(this).hasClass('delete') ) {
           $(this).parent('ol').parent('.item').remove();
         }
+        
       });
 
       $('#datetimepicker').datepicker({
@@ -121,12 +145,31 @@ $(function(){
         
             }
             });
-       /*
-        var currentDate =  $('.date-change').datepicker("getDate");
-        if (currentDate !== null) {
-           alert('hi');
-        }
-*/
+            
+            $('#list .list .item ol li[class="check fa fa-check"]').hover(
+            
+                
+                function() {
+                    
+                    var dis = $(this);
+                    var inputEntity = dis.parent('ol').parent('.item').children('div.task-value').children('input');
+                    if ( inputEntity.css('background-color') === 'rgb(220, 20, 60)') {
+                        dis.css('color','green');              
+                    }
+                    
+                    
+                },
+                function() {
+                    $(this).css('color','white');
+                }
 
-         
+                
+          );
+            /*
+           if ($('#list .list .item div.task-value input').css('background-color') === 'rgb(0, 128, 0)') {
+               $(this).parent('div.task-value').parent('.item').children('ol').children('.hiddenField').datepicker("destroy");
+           }
+           */
+           
 });
+

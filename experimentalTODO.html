@@ -17,7 +17,7 @@
     }
 
     body {
-    background: #222222;
+    background-color: #333333;
     }
 
     ul, ol { list-style:none}
@@ -26,6 +26,7 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 14pt;
     color: white;
+    
     text-align: justify;
     
     }
@@ -33,8 +34,9 @@
     header {
       width: 100%;
       padding: 35px 16px;
-      background: black;
+      background-color: #000000;
       color:#fff;
+      
     }
 
     .fixed {
@@ -66,24 +68,25 @@
         clear:both;
         height:200px;
         /*border:1px solid yellow;*/
-        background:transparent;
+        background-color:#222222;
+      
     }
 
     #list .new #new, #list .new #datetimepicker {
         float:left;
-        width: calc(100% - 100px);
+        width: calc(100% - 150px);
         height:50px;
         padding: 0;
         margin: 0;
         outline: 0;
         border: 0;
-        background: transparent;
+        background-color: transparent;
         text-indent: 25px;
     }
 
     #list .new #todo-description {
         float:left;
-        width: calc(100% - 100px);
+        width: calc(100% - 150px);
         height:100px;
         padding: 25px;
         padding-top: 0;
@@ -91,7 +94,7 @@
         margin: 0;
         outline: 0;
         border: 0;
-        background: transparent;
+        background-color: transparent;
         box-sizing: border-box;
         line-height: 30px;
         
@@ -100,15 +103,23 @@
     #list .new button {
     cursor: pointer;
     float: right;
-    width: 100px;
+    width: 150px;
     height: 200px;
     padding: 0;
     margin: 0;
     outline: 0;
-    border: 0;
-    background: #111111;
-    font-size: 50pt;
+    border:1px solid white;
+    background-color: #111111;
+    font-size: 75pt;
     color: white;
+    -webkit-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
+  }
+
+  #list .new button:hover {
+    box-shadow: 0 0 10px 0 white inset, 0 0 20px 2px white;
+  border: 3px solid white;
+  background-color: #000000;
   }
 
   #list .list {
@@ -119,7 +130,8 @@
   #list .list .item {
     clear: both;
     height: 50px;
-    background: crimson;
+    border:1px solid white;
+    /*box-shadow: 0px 2px 0 white, 2px 4px 6px #eee;*/
   }
 
   /*
@@ -132,7 +144,7 @@
     margin: 0;
     outline: 0;
     border: 1px solid yellow;
-    background: transparent;
+    background-color: transparent;
     text-indent: 25px;
     
   }
@@ -147,27 +159,42 @@
     margin: 0;
     outline: 0;
     border: 0;
-    background: transparent;
+    background-color: transparent;
     text-indent: 25px;
     line-height: 50px;
+   
   }
 
   #list .list .item div.task-value input{
-      cursor:default;
+  
+            cursor:pointer;
       float:left;
       width: 100%;
       height: 50px;
       padding: 0;
-    margin: 0;
-    outline: 0;
+     margin: 0;
+     outline: 0;
     border: 0;
-    background: transparent;
+    background-color: crimson;
     text-indent: 25px;
     line-height: 50px;
+     
+  
+  -webkit-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
+  color: white;
+  }
+
+  #list .list .item div.task-value input:hover {
+
+            box-shadow: 0 0 10px 0 white inset, 0 0 20px 2px white;
+  border: 3px solid white;
   }
 
   #list .list .item ol {
     float: right;
+    background-color:#111111;
+   
   }
 
   #list .list .item ol li{
@@ -184,7 +211,7 @@
     cursor: default;
     font-size: 10pt;
     width: 150px;
-    background: none repeat scroll 0 0 black;
+    background-color: none repeat scroll 0 0 black;
 	border: 1px solid #FCB7CE;
 	height:20px;
 	padding: 1px 8px 1px 6px;
@@ -194,74 +221,10 @@
   line-height: normal;
 
   }
-/*
-  #list .list .item ol li[class='far fa-edit'] .datetimepicker {
-    z-index: 9999;
-  }
-  */
-/*
-  #list .list .item div.task-value .tooltiptext {
-    visibility: hidden;
-    width: 220px;
-    height:50px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-*/
-    /* Position the tooltip text */
-    /*
-    position: fixed;
-    z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -110px;
-*/
-    /* Fade in tooltip */
-    /*
-    opacity: 0;
-    transition: opacity 0.3s;
-    */
-/*
-    visibility:hidden;
-    position: fixed;
-    padding: .5em 1em;
-    background-color: #555;
-    color: #fff;  
-    border-radius: 6px;
-    
-}
-*/
-/*
- div.task-value .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-*/
-/*
-#list .list .item div.task-value:hover .tooltiptext {
-    visibility:visible;
-    display:inline-block;
-}
-*/
-/*
-#list .list .item div.task-value:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-*/
-
 
   .ui-datepicker-trigger {
     border: none;
-    background:transparent;
+    background-color:transparent;
     color:white;
     float:left;
     cursor: pointer;
@@ -270,11 +233,23 @@
     font-size: 20pt;
     line-height: 50px;
     text-align: center;
+    
   }
+
+
+.ui-datepicker-trigger:hover {
+  color:#111111;
+  background-color: white;
+  border:1px solid #111111;
+}
+
+
 
 .hiddenField{
     display: none;
 }
+
+
 
 </style>
 
@@ -304,8 +279,8 @@
             <ol>
               <li class="description">This is a description</li>
               <li class='due-date'>2018/06/27 21:00</li>
-              <input type="input"  class="hiddenField date-change" />
-              <li class='check fa fa-check'></li>
+              <input type="input"  class="hiddenField" />
+              <li class='check fa fa-check' ></li>
               <li class='delete fa fa-times'></li>
             </ol>
           </li> 
@@ -340,11 +315,7 @@
     
     <script src="plainExperimentaljs.js"></script>
     <script type="text/javascript" src="alert.jquery.js"></script>
-  <script>
-    
-    
-      </script>
-      
+  
     
 </body>
 </html>
