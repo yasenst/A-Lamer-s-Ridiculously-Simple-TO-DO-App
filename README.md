@@ -1,8 +1,10 @@
 # A-Lamer-s-Ridiculously-Simple-TO-DO-App
 Single-page application for the Telerik Academy, Alpha-java-Mar-18
 
-This is a simple to-do application/task manager. Developed by Yasen from Telerik Academy's Java Alpha program as a front-end assignment.
+<h1>This is a simple to-do application/task manager. </h1>
+<h3>Developed by Yasen from Telerik Academy's Java Alpha program as a front-end assignment.</h3>
 
+<pre>
 What I've used:
   -HTML
   -CSS
@@ -17,3 +19,4 @@ Supported operations:
   -Change due date of a task
   -Mark task as completed
   -Delete task
+</pre>
