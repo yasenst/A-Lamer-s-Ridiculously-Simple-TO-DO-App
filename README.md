@@ -2,7 +2,7 @@
 Single-page application for the Telerik Academy, Alpha-java-Mar-18
 
 <h1>This is a simple to-do application/task manager. </h1>
-<h3>Developed by Yasen by Yasen for Telerik Academy's Java Alpha Front-End assignment.</h3>
+<h3>Developed by Yasen for Telerik Academy's Java Alpha Front-End assignment.</h3>
 
 <pre>
 What I've used:
