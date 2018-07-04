@@ -1,5 +1,5 @@
 $(function(){
-    
+    // form submit(for a new to-do)
     $('.new').submit(function () {
         if (   $('#new').val() !== ''
             && $('#todo-description').val() !== ''
@@ -11,11 +11,12 @@ $(function(){
             var edit = '<ol><li class="description">'+itemDescription+'</li><li class="status status-not-done">NOT DONE</li><li class="due-date">'+itemDate+'</li><input type="input" class="hiddenField"/><li class="check fa fa-check"></li><li class="delete fa fa-times"></li></ol>';
             $('.list').append('<li class="item">' + input + edit + '</li>');
         };
-
+        // clear fields after submit
         $('#new').val('');
         $('#todo-description').val('');
         $('#datetimepicker').val('');
        
+        // mark to-do as completed or delete depending on button pressed
         $('#list .list .item ol li').on('click',function(){
             if ( $(this).hasClass('check') ) {
               $(this).parent('ol').parent('.item').children('div').children('input').css("background-color", "green");
@@ -31,15 +32,11 @@ $(function(){
             }
         });
     
-    
-
-
+        // expand to-do to view information as a modal window(alert actually)
         $('#list .list .item div.task-value').click(function(){
             var todoTitle = $(this).children('input').val();
             var todoDesc = $(this).parent().children('ol').children('li .description').text();
             var todoDate = $(this).parent().children('ol').children('li .due-date').text();
-            
-            /*$(this).parent().children('ol').children('li .status').css('color', 'blue');*/
             var todoStatus = $(this).parent().children('ol').children('li.status').text();
             var todoClass;
             if ($(this).parent().children('ol').children('li.status').hasClass('status-done')) {
@@ -66,6 +63,7 @@ $(function(){
             $.deleteAlert();
         });
 
+        // set up jquery-ui's datepicker
         $( ".hiddenField" ).datepicker({
             showOn: "button",
             buttonText: "<i class='far fa-edit'></i>",
@@ -97,6 +95,7 @@ $(function(){
         
     });
 
+    // datepicker setup and format
     $('#datetimepicker').datepicker({
         changeMonth: true,
         changeYear: true,
@@ -132,11 +131,11 @@ $(function(){
           $.deleteAlert();
         });
 
-
+        // for the fixed header
         var h = $("header").outerHeight();
         $('#list').css('padding-top', h);
 
-        
+        // datepicker for changing date of a to-do
         $( ".hiddenField" ).datepicker({
             showOn: "button",
             buttonText: "<i class='far fa-edit'></i>",
