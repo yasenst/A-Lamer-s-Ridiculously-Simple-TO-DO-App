@@ -4,7 +4,7 @@
 #alert_title, #alert_template{text-align:center;}
 #alert_actions{margin-top: 20px;text-align: center;}
 #alert_actions button{padding: 10px 15px;box-sizing:border-box;border: 0;color: #FFFFFF;text-transform: uppercase;cursor: pointer;-khtml-border-radius: 3px;-o-border-radius: 3px;border-radius: 3px;-webkit-border-radius: 3px;-moz-border-radius: 3px;}
-#alert_actions button.blue{background: #007aff;}
+#alert_actions button.blue{background: #333333;}
 #alert_close{display:none;}
 
 @media only screen and (max-width:40em){
