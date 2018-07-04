@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>TO-DO Application</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie Flower">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/alert.css" type="text/css" />
+    <link rel="stylesheet" href="css/styles.css" type="text/css" />
+</head>
+<body>
+    <header id="page-header">
+        A Lamer's Ridiculously Simple TO-DO App
+    </header>
+    <div id="list">
+        <form class="new">
+            <button class="fa fa-plus"></button>
+            <input id="new" placeholder="New Item" type="text" autocomplete="off">
+            <textarea id="todo-description" placeholder="Enter description"></textarea>
+            <input id="datetimepicker" placeholder="Due date" autocomplete="off">
+        </form>
+        <ul class="list">
+            <li class="item">
+                <div class="task-value">
+                    <input type="text" value="task1" readonly>
+                </div>
+                <ol>
+                    <li class="description">This is a description</li>
+                    <li class="status status-not-done">NOT DONE</li>
+                    <li class="due-date">01 July 2018</li>
+                    <input type="input"  class="hiddenField" />
+                    <li class="check fa fa-check" ></li>
+                    <li class="delete fa fa-times"></li>
+                </ol>
+            </li> 
+            <li class="item">
+                <div class="task-value">
+                    <input type="text" value="task2" readonly>
+                </div>
+                <ol> 
+                    <li class="description" >This is another description</li>
+                    <li class="status status-not-done">NOT DONE</li>
+                    <li class="due-date">04 July 2018</li>
+                    <input type="input"  class="hiddenField" />
+                    <li class="check fa fa-check"></li>
+                    <li class="delete fa fa-times"></li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <script 
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script
+        src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+        integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="js/alert.jquery.js" type="text/javascript">
+    </script>
+    <script 
+        src="js/script.js">
+    </script>
+</body>
+</html>
