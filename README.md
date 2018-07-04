@@ -19,4 +19,6 @@ Supported operations:
   -Change due date of a task
   -Mark task as completed
   -Delete task
+  
+Quick demo on youtube: https://www.youtube.com/watch?v=2qHY5xPkzOU
 </pre>
